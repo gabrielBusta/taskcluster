@@ -97,7 +97,7 @@
     "sift": "^13.5.0",
     "slugid": "^2.0.0",
     "subscriptions-transport-ws": "^0.9.7",
-    "superagent": "^6.0.0",
+    "superagent": "^7.0.0",
     "taskcluster-client": "link:clients/client",
     "taskcluster-db": "link:db",
     "taskcluster-lib-api": "link:libraries/api",
