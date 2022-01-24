@@ -2719,6 +2719,11 @@ execa@^5.0.0:
     signal-exit "^3.0.3"
     strip-final-newline "^2.0.0"
 
+express-rate-limit@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/express-rate-limit/-/express-rate-limit-6.2.0.tgz#be644be082d4d5da8c368aed07cef80152f6e218"
+  integrity sha512-q9xfttbPX79HiBsHA4LT3PZEeJR96CJ5/2jloAKSEECMx8XlOOOpjxx6iK/kBw3hFJ8uhx6Q9lCfSGp70yV0tQ==
+
 express-session@^1.16.2:
   version "1.17.2"
   resolved "https://registry.yarnpkg.com/express-session/-/express-session-1.17.2.tgz#397020374f9bf7997f891b85ea338767b30d0efd"

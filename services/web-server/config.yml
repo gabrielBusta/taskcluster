@@ -6,6 +6,8 @@ defaults:
     playground: false
     # Delete expired entries in both the access token and authorization code tables
     authorizationCodeExpirationDelay: '- 10 minutes'
+    # rate limit maximum number of requests per minute
+    rateLimitMaxRequests: !env:number RATE_LIMIT_MAX_REQUESTS
 
   monitoring:
     level: !env:optional LEVEL
