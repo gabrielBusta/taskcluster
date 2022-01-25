@@ -138,7 +138,7 @@ module.exports = async ({ cfg, strategies, auth, monitor, db }) => {
   // set up auth rate limiter: maximum # requests per minute
   const authLimiter = rateLimit({
     windowMs: 1 * 60 * 1000, // 1 minute
-    max: cfg.app.rateLimitMaxRequests,
+    max: cfg.app.authRateLimitMaxRequests,
   });
 
   // 1. Render a dialog asking the user to grant access
