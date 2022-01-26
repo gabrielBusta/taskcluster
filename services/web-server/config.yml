@@ -9,6 +9,9 @@ defaults:
     # auth rate limit maximum number of requests per minute
     # set to 0 to disable rate limiting
     authRateLimitMaxRequests: !env:number AUTH_RATE_LIMIT_MAX_REQUESTS
+    # number of proxies between the user and the server
+    # set to 0 for no reverse proxy
+    numberOfProxies: !env:number NUMBER_OF_PROXIES
 
   monitoring:
     level: !env:optional LEVEL

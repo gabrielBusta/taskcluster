@@ -142,6 +142,10 @@ module.exports = async ({ cfg, strategies, auth, monitor, db }) => {
     legacyHeaders: false, // Disable the `X-RateLimit-*` headers
   });
 
+  // set number of proxies between the user and the server
+  // to ensure rate limiter doesn't behave like a global one
+  app.set('trust proxy', cfg.app.numberOfProxies);
+
   // 1. Render a dialog asking the user to grant access
   app.get('/login/oauth/authorize', authLimiter, cors(corsOptions), authorization);
   // 2. Process the dialog submission (skipped if redirectUri is whitelisted)

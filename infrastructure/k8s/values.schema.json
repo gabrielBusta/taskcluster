@@ -1538,6 +1538,9 @@
         "level": {
           "type": "string"
         },
+        "number_of_proxies": {
+          "type": "number"
+        },
         "procs": {
           "additionalProperties": false,
           "properties": {
@@ -1670,6 +1673,7 @@
         "procs",
         "public_url",
         "auth_rate_limit_max_requests",
+        "number_of_proxies",
         "additional_allowed_cors_origin",
         "taskcluster_client_id",
         "taskcluster_access_token",
