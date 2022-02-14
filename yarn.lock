@@ -4348,9 +4348,9 @@ matrix-events-sdk@^0.0.1-beta.6:
   integrity sha512-VMqPXe3Bg4R9yC9PNqGv6bDFwWlVYadYxp0Ke1ihhXUCpGcx7e28kOYcqK2T3RxLXK4KK7VH4JRbY53Do3r+Fw==
 
 matrix-js-sdk@^15.0.0:
-  version "15.5.0"
-  resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-15.5.0.tgz#747b3af4b5e1361e6404d88ac88c5518a4f751d3"
-  integrity sha512-Y8BoJ5xEejTeO2vwGrE4hNrSSOKLP6/brqeTy+gjjgti/PUhf+foC+ww9lHv7MqiNYFl9a/8tBf3crhU8+3jVw==
+  version "15.5.1"
+  resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-15.5.1.tgz#fb67b7f8c74414af71790d1ac0dbb99c1281ec2e"
+  integrity sha512-7oCrDRZ5NxfimfZgw9cM9a89WxBj1i3cDiwb8PLNv7KnYgnI6z06WUwha2EhohTUd2v69h2AdXSZi2jD6QuHBA==
   dependencies:
     "@babel/runtime" "^7.12.5"
     another-json "^0.2.0"
