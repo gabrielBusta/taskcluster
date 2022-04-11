@@ -3158,7 +3158,7 @@ googleapis@^73.0.0:
     google-auth-library "^7.0.2"
     googleapis-common "^5.0.2"
 
-got@^11.7.0:
+got@^11.7.0, got@^11.8.1:
   version "11.8.3"
   resolved "https://registry.yarnpkg.com/got/-/got-11.8.3.tgz#f496c8fdda5d729a90b4905d2b07dbd148170770"
   integrity sha512-7gtQ5KiPh1RtGS9/Jbv1ofDpBFuq42gyfEib+ejaRBJuj/3tQFeR5+gw57e4ipaU8c/rCjvX6fkQz2lyDlGAOg==
@@ -3303,7 +3303,7 @@ hashids@^2.0.0:
   resolved "https://registry.yarnpkg.com/hashids/-/hashids-2.2.10.tgz#82f45538cf03ce73e31b78d1abe78d287cf760c4"
   integrity sha512-nXnYums7F8B5Y+GSThutLPlKMaamW1yjWNZVt0WModiJfdjaDZHnhYTWblS+h1OoBx3yjwiBwxldPP3nIbFSSA==
 
-hawk@9.0.0:
+hawk@9.0.0, hawk@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/hawk/-/hawk-9.0.0.tgz#406a1f2f92dd6948a50620e5cafd5491007764de"
   integrity sha512-xTkUIwwAI6d5//1ofvWCDM7YYAEAo/mFqhEW7S/m9+nLZqkOzSz8lTLKk6cHvJGax3UrbljfP8P+PFPybGcxZA==
@@ -4143,7 +4143,7 @@ lodash.truncate@^4.4.2:
   resolved "https://registry.yarnpkg.com/lodash.truncate/-/lodash.truncate-4.4.2.tgz#5a350da0b1113b837ecfffd5812cbe58d6eae193"
   integrity sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=
 
-lodash@4.17.21, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.5:
+lodash@4.17.21, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -4309,15 +4309,15 @@ math-interval-parser@^2.0.1:
   resolved "https://registry.yarnpkg.com/math-interval-parser/-/math-interval-parser-2.0.1.tgz#e22cd6d15a0a7f4c03aec560db76513da615bed4"
   integrity sha512-VmlAmb0UJwlvMyx8iPhXUDnVW1F9IrGEd9CIOmv+XL8AErCUUuozoDMrgImvnYt2A+53qVX/tPW6YJurMKYsvA==
 
-matrix-events-sdk@^0.0.1-beta.6:
-  version "0.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/matrix-events-sdk/-/matrix-events-sdk-0.0.1-beta.6.tgz#9001090ed2e2bf29efc113d6b29871bcc6520749"
-  integrity sha512-VMqPXe3Bg4R9yC9PNqGv6bDFwWlVYadYxp0Ke1ihhXUCpGcx7e28kOYcqK2T3RxLXK4KK7VH4JRbY53Do3r+Fw==
+matrix-events-sdk@^0.0.1-beta.7:
+  version "0.0.1-beta.7"
+  resolved "https://registry.yarnpkg.com/matrix-events-sdk/-/matrix-events-sdk-0.0.1-beta.7.tgz#5ffe45eba1f67cc8d7c2377736c728b322524934"
+  integrity sha512-9jl4wtWanUFSy2sr2lCjErN/oC8KTAtaeaozJtrgot1JiQcEI4Rda9OLgQ7nLKaqb4Z/QUx/fR3XpDzm5Jy1JA==
 
-matrix-js-sdk@^15.0.0:
-  version "15.5.0"
-  resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-15.5.0.tgz#747b3af4b5e1361e6404d88ac88c5518a4f751d3"
-  integrity sha512-Y8BoJ5xEejTeO2vwGrE4hNrSSOKLP6/brqeTy+gjjgti/PUhf+foC+ww9lHv7MqiNYFl9a/8tBf3crhU8+3jVw==
+matrix-js-sdk@^17.0.0:
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-17.0.0.tgz#6edf2f8d05da003e98a6cf5269a4717adfe4e406"
+  integrity sha512-8nv+a1e6n4x4DYKiBFRS6/CIpsE22+31K+9/4Y5MB8m3iraSVBtdZ5y/9ktQnjQuo9I85TvyqHL2obRWF7UD5Q==
   dependencies:
     "@babel/runtime" "^7.12.5"
     another-json "^0.2.0"
@@ -4325,7 +4325,7 @@ matrix-js-sdk@^15.0.0:
     bs58 "^4.0.1"
     content-type "^1.0.4"
     loglevel "^1.7.1"
-    matrix-events-sdk "^0.0.1-beta.6"
+    matrix-events-sdk "^0.0.1-beta.7"
     p-retry "^4.5.0"
     qs "^6.9.6"
     request "^2.88.2"
@@ -6160,40 +6160,47 @@ tar-stream@^2.0.0:
     readable-stream "^3.1.1"
 
 "taskcluster-client@link:clients/client":
-  version "0.0.0"
+  version "44.10.0"
+  dependencies:
+    debug "^4.1.1"
+    got "^11.8.1"
+    hawk "^9.0.0"
+    lodash "^4.17.4"
+    slugid "^2.0.0"
+    taskcluster-lib-urls "^13.0.0"
 
 "taskcluster-db@link:db":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-api@link:libraries/api":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-app@link:libraries/app":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-azqueue@link:libraries/azqueue":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-config@link:libraries/config":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-iterate@link:libraries/iterate":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-loader@link:libraries/loader":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-monitor@link:libraries/monitor":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-postgres@link:libraries/postgres":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-pulse@link:libraries/pulse":
-  version "44.9.2"
+  version "44.10.0"
 
 "taskcluster-lib-references@link:libraries/references":
-  version "44.9.2"
+  version "44.10.0"
 
 taskcluster-lib-scopes@^11.0.0:
   version "11.0.0"
@@ -6203,7 +6210,7 @@ taskcluster-lib-scopes@^11.0.0:
     fast-json-stable-stringify "^2.1.0"
 
 "taskcluster-lib-testing@link:libraries/testing":
-  version "44.9.2"
+  version "44.10.0"
 
 taskcluster-lib-urls@^13.0.0:
   version "13.0.1"
@@ -6211,7 +6218,7 @@ taskcluster-lib-urls@^13.0.0:
   integrity sha512-WrhKMbiWmpPrB0vbzLZq4W35mhdPVLklZY+qrBoI7KQzFAjO/qsgS8ssHL6eYmvBf4fE7C+C9ZFxQpQOUynQvg==
 
 "taskcluster-lib-validate@link:libraries/validate":
-  version "44.9.2"
+  version "44.10.0"
 
 temporary@^1.0.0:
   version "1.1.0"
