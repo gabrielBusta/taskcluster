@@ -1,0 +1,159 @@
+version: '3'
+volumes:
+  db-data: {}
+networks:
+  local:
+    driver: bridge
+services:
+  rabbitmq:
+    image: rabbitmq:3.7.8-management
+    env_file:
+      - .env
+    networks:
+      - local
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+  postgres:
+    image: postgres:11
+    env_file:
+      - .env
+    networks:
+      - local
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      LC_COLLATE: en_US.UTF8
+      LC_CTYPE: en_US.UTF8
+  ui:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    ports:
+      - '9000:9000'
+  auth-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - auth/web
+  github-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - github/web
+  hooks-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - hooks/web
+  index-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - index/web
+  notify-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - notify/web
+  object-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - object/web
+  purge-cache-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - purge-cache/web
+  queue-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - queue/web
+  secrets-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - secrets/web
+  web-server-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    ports:
+      - '3050:3050'
+    command:
+      - web-server/web
+  worker-manager-web:
+    image: taskcluster/taskcluster:v44.13.5
+    env_file:
+      - .env
+    networks:
+      - local
+    depends_on:
+      - rabbitmq
+      - postgres
+    command:
+      - worker-manager/web
