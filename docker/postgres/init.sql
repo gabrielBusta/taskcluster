@@ -1,0 +1,13 @@
+CREATE USER test PASSWORD 'test';
+GRANT ALL ON DATABASE taskcluster TO test WITH GRANT OPTION;
+CREATE USER test_auth PASSWORD 'auth_password';
+CREATE USER test_github PASSWORD 'github_password';
+CREATE USER test_hooks PASSWORD 'hooks_password';
+CREATE USER test_index PASSWORD 'index_password';
+CREATE USER test_notify PASSWORD 'notify_password';
+CREATE USER test_object PASSWORD 'object_password';
+CREATE USER test_purge_cache PASSWORD 'purge_cache_password';
+CREATE USER test_queue PASSWORD 'queue_password';
+CREATE USER test_secrets PASSWORD 'secrets_password';
+CREATE USER test_web_server PASSWORD 'web_server_password';
+CREATE USER test_worker_manager PASSWORD 'worker_manager_password';

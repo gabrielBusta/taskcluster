@@ -1,0 +1,209 @@
+version: '3'
+volumes:
+  db-data: {}
+networks:
+  local:
+    driver: bridge
+services:
+  rabbitmq:
+    image: rabbitmq:3.7.8-management
+    env_file:
+      - .env
+    networks:
+      - local
+    healthcheck:
+      test: rabbitmq-diagnostics ping
+      interval: 1s
+      timeout: 2s
+      retries: 30
+      start_period: 3s
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+  postgres:
+    image: postgres:11
+    env_file:
+      - .env
+    networks:
+      - local
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      LC_COLLATE: en_US.UTF8
+      LC_CTYPE: en_US.UTF8
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 1s
+      timeout: 2s
+      retries: 30
+      start_period: 3s
+    ports:
+      - '5432:5432'
+  pg_init_db:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - script/db:upgrade
+    depends_on:
+      postgres:
+        condition: service_healthy
+  ui:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - ui/web
+    ports:
+      - '9000:9000'
+  auth-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - auth/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  github-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - github/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  hooks-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - hooks/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  index-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - index/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  notify-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - notify/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  object-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - object/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  purge-cache-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - purge-cache/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  queue-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - queue/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  secrets-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - secrets/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+  web-server-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - web-server/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    ports:
+      - '3050:3050'
+  worker-manager-web:
+    image: ${TC_IMAGE}
+    env_file:
+      - .env
+    networks:
+      - local
+    command:
+      - worker-manager/web
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
