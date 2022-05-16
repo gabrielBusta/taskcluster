@@ -8,7 +8,7 @@ module.exports = ({ queue }, isAuthed, rootUrl, monitor, strategies, req, cfg, r
     Promise.all(
       queries.map(async ({ provisionerId, workerType, workerGroup, workerId }) => {
         try {
-          return await queue.getWorker(provisionerId, workerType, workerGroup, workerId);
+          return await queue.getWorker(provisionerId, workerType, workerGroup, workerId); // TODO: update to WM
         } catch (err) {
           return err;
         }
@@ -18,7 +18,7 @@ module.exports = ({ queue }, isAuthed, rootUrl, monitor, strategies, req, cfg, r
   );
   const workers = new ConnectionLoader(
     async ({ provisionerId, workerType, options, filter, isQuarantined }) => {
-      const raw = await queue.listWorkers(
+      const raw = await queue.listWorkers( // TODO: update to WM
         provisionerId,
         workerType,
         typeof isQuarantined === 'boolean'
